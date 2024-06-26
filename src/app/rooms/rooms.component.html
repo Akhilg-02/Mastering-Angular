@@ -1,0 +1,17 @@
+<h3>Wecome to the new motel - {{hotelName}}</h3>
+
+<div [hidden]="hideRooms">
+    <!-- Property binding -->
+Number of Rooms : -
+<div *ngIf="rooms.availableRooms > 0"
+     [ngStyle]="{color: 'red'}"
+     [innerText]="totalRooms"></div>
+</div>
+
+{{rooms?.availableRooms ?? 'No rooms'}}
+
+<div *ngIf="rooms.availableRooms > 0">
+  <app-rooms-list [rooms]="roomList"></app-rooms-list>
+</div>
+
+<button (click)="toggle()">Toggle</button>
