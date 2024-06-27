@@ -1,4 +1,10 @@
-<h3>Wecome to the new motel - {{hotelName}}</h3>
+<!-- <h3>Wecome to the new motel - {{hotelName}}</h3> -->
+
+<app-header></app-header>
+<app-header></app-header>
+<app-header></app-header>
+<app-header></app-header>
+
 
 <div [hidden]="hideRooms">
     <!-- Property binding -->
@@ -10,8 +16,24 @@ Number of Rooms : -
 
 {{rooms?.availableRooms ?? 'No rooms'}}
 
+<div *ngIf="selectedRoom">
+  {{selectedRoom | json}}
+</div>
+
+<div>
+  <button 
+  class="btn btn-md btn-primary ms-2"
+  (click)="addRoom()"
+  >
+  Add room</button>
+</div>
+
 <div *ngIf="rooms.availableRooms > 0">
-  <app-rooms-list [rooms]="roomList"></app-rooms-list>
+  <app-rooms-list 
+  [rooms]="roomList"
+  [title]= "title"
+  (selectedRoom)="selectRoom($event)"
+  ></app-rooms-list>
 </div>
 
 <button (click)="toggle()">Toggle</button>

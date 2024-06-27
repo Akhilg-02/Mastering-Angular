@@ -1,5 +1,5 @@
-
-    Rooms List
+<h2>{{title | json}}</h2>
+    
 
     <table class="table table-striped">
       <thead>
@@ -10,6 +10,7 @@
           <th>Room Type</th>
           <th>Room Price</th>
           <th>Room Amenities</th>
+          <th>Select Price</th>
           <th>Check in Time</th>
         </tr>
       </thead>
@@ -21,6 +22,13 @@
           <td>{{room.roomType}}</td>
           <td>{{room.price}}</td>
           <td>{{room.amenities}}</td>
+          <td>
+            <button 
+            class="btn btn-md btn-primary ms-2"
+            (click)="selectRoom(room)"
+            >
+            Select room</button>
+          </td>
           <td>{{room.checkinTime}}</td>
         </tr>
       </tbody>
